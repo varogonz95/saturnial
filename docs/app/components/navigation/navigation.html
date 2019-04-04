@@ -1,0 +1,10 @@
+<small class="text-muted" style="font-size: 12px"><b>NAVIGATION</b></small>
+<hr>
+<ul class="nav flex-column">
+	<li class="nav-item" ng-repeat="link in vm.links">
+		<a class="nav-link text-secondary w-100 d-flex justify-content-between" href="#">
+			<span ng-bind="link.name"></span>
+			<span class="dropdown-toggle" style="transform: rotate(270deg)"></span>
+		</a>
+	</li>
+</ul>
