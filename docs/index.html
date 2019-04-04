@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link rel="stylesheet" href="./assets/styles/atom-one-light.css">
+	<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+	<script src="./assets/scripts/highlightjs/highlight.pack.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+	<script src="//code.angularjs.org/1.7.6/angular-route.js"></script>
+	<script src="//pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+	<!-- AngularJS controllers/modules -->
+	<script src="./app/app.module.js"></script>
+	<!-- AngularJS components -->
+	<script src="./app/components/navbar/navbar.component.js"></script>
+	<script src="./app/components/codeBlock/codeBlock.component.js"></script>
+
+    <title>Saturnial MVC</title>
+</head>
+<body ng-app="app">
+
+    <navbar></navbar>
+
+    <div class="jumbotron jumbotron-fluid mb-0">
+        <div class="container text-center">
+            <h1 class="display-3">Saturnial MVC Framework</h1>
+            <hr class="my-2">
+            <p class="lead">Labore eu quis qui id consectetur amet veniam consectetur eiusmod incididunt enim dolore quis.</p>
+            <!-- <p class="lead">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+            </p> -->
+        </div>
+    </div>
+
+    <article class="container pt-5 pb-3">
+        <header class="row mb-3" style="font-size: x-large; font-weight: lighter">
+            <div class="col"><hr></div>
+            <div class="col text-center">So, Why Saturnial MVC?</div>
+            <div class="col"><hr></div>
+        </header>
+        
+        <section>
+            <p>
+                Culpa magna qui non magna non dolor sunt. Cillum aliquip ad qui eiusmod laborum eiusmod consequat labore. Cupidatat mollit do nulla commodo sit in et amet eiusmod pariatur. Id Lorem nostrud nostrud veniam deserunt laborum qui in dolore ut enim dolor Lorem. Et non culpa incididunt cupidatat est eu cillum voluptate non commodo do aliquip. Nostrud aliqua enim eiusmod commodo do consectetur.
+                <br><br>
+                Ipsum dolor exercitation proident et duis do. Voluptate ea reprehenderit ex proident elit et excepteur proident id quis. Est nisi amet irure pariatur nisi officia. Ea incididunt reprehenderit ipsum enim esse ex ad qui aliquip.
+            </p>
+        </section>
+        <hr>
+    </article>
+
+    <div class="container-fluid">
+        <!-- <div class="row mb-5">
+            <div class="col-10 mx-auto">
+                <div class="card-group">
+                    <div class="card">
+                        <img class="card-img-top" data-src="holder.js/100x180/" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">Model</h4>
+                            <p class="card-text">Proident aute enim est fugiat cillum do incididunt adipisicing Lorem.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img-top" data-src="holder.js/100x180/" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">View</h4>
+                            <p class="card-text">Reprehenderit ea Lorem labore in mollit dolor reprehenderit ut Lorem minim ipsum mollit.</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img-top" data-src="holder.js/100x180/" alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">Controller</h4>
+                            <p class="card-text">Nulla eiusmod exercitation velit sunt in sunt non aute magna sint laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="row py-5">
+
+            <div class="col-5 mx-auto">
+            </div>
+            
+            <div class="col-5 mx-auto">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <h4 class="card-title">Lorem Ipsum</h4>
+                        <p class="card-text">Nulla sint tempor reprehenderit quis exercitation fugiat elit magna commodo magna laboris.</p>
+                        <p class="card-text">
+                            <button class="btn btn-sm btn-primary">Learn more</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row py-5 bg-light">
+            <div class="col-5 mx-auto">
+                <div class="card border-0 bg-light">
+                    <div class="card-body">
+                        <h4 class="card-title">Lorem Ipsum</h4>
+                        <p class="card-text">Nulla sint tempor reprehenderit quis exercitation fugiat elit magna commodo magna laboris.</p>
+                        <p class="card-text">
+                            <button class="btn btn-sm btn-primary">Learn more</button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 mx-auto">
+                <pre class="prettyprint rounded shadow bg-white border-0">
+                    class Voila {
+                        public:
+                        // Voila
+                        static const string VOILA = "Voila";
+                        
+                        // will not interfere with embedded <a href="#voila2">tags</a>.
+                    }
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="h1" style="font-weight: lighter">NodeJs + Express + TypeORM + Pug = Perfection</h1>
+            <p class="lead">Just the right recipe for Web development.</p>
+            <p class="lead mt-5">
+                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Explore the Docs!</a>
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        All rights reserved lol
+    </footer>
+
+    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+</body>
+</html>
