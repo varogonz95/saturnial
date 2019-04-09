@@ -6,17 +6,21 @@ import { HttpContext } from "./RouteResolver";
 
 /* export function csrf(): string {
 	return null
-}
+} */
 
 export function token(): string {
-	return null
-} */
+	return HttpContext.getInstance().request.csrfToken()
+}
+
+export function tokenField(): string {
+	return `input type="hidden" name="_csrf" value="${token()}"`
+}
 
 /* export function user(): Object {
 	return null
-}
+} */
 
-export function guest(): boolean {
+/* export function guest(): boolean {
 	return null
 } */
 

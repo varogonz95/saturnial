@@ -1,7 +1,7 @@
 import * as Pug from "pug";
 import { Config } from "./Config";
 import { HTTP_METHODS } from "./Utils";
-import { assets, config, current, method, route } from "./Helpers";
+import { assets, config, current, method, route, tokenField } from "./Helpers";
 import { IRoute } from "./interfaces";
 
 export class View {
@@ -32,11 +32,15 @@ class ViewData {
 		return current()
 	}
 
+	public method(verb: HTTP_METHODS): string {
+		return method(verb)
+	}
+
 	public route(name: string, params?: object): string | IRoute {
 		return route(name, params)
 	}
 
-	public method(verb: HTTP_METHODS): string {
-		return method(verb)
+	public tokenField() {
+		return tokenField()
 	}
 }
