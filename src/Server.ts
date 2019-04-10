@@ -14,8 +14,6 @@ import { ServerMiddlewareConfig, ServerConfig, CSRFOptions } from "./interfaces"
 import { extend } from "./Helpers";
 import { Config } from "./Config";
 
-
-
 const DEFAULT_SERVER_MIDDLEWARES: ServerMiddlewareConfig = {
 	cors: true,
 	csrf: { sessionKey: 'csrf', cookie: true },

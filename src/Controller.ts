@@ -1,5 +1,5 @@
 import { View } from "./View"
-import { ViewResponse, ErrorResponse } from "./ActionResponse";
+import { ViewResponse, ErrorResponse, SerializeResponse } from "./ActionResponse";
 import { HttpContext } from "./RouteResolver";
 
 export abstract class ActionDispatcher {
@@ -13,45 +13,18 @@ export abstract class ActionDispatcher {
 		this.name = this.name.toLocaleLowerCase()
 		this.action = this.context.route.action
 	}
-	protected abstract error(name: string, data?: object): ErrorResponse
+
+	protected abstract error(data?: object): ErrorResponse
+	protected abstract error(statusCode: number, data?: object): ErrorResponse
+
+	protected abstract response(data: object): SerializeResponse
 
 	protected abstract view(): ViewResponse
 	protected abstract view(data: object): ViewResponse
 	protected abstract view(name: string, data?: object): ViewResponse
 }
 
-export abstract class Controller extends ActionDispatcher {
-
-	protected context: HttpContext
-
-	protected error(name: string, data?: object): ErrorResponse {
-		throw new Error("Method not implemented.");
-	}
-
-	protected redirect() {
-		throw new Error("Method not implemented.");
-	}
-
-	protected view(): ViewResponse
-	protected view(data: object): ViewResponse
-	protected view(name: string, data?: object): ViewResponse
-	protected view(nameOrData?: string | object, maybeData?: object): ViewResponse {
-		if (!arguments.length)
-			return new ViewResponse(`${this.name}/${this.action}`)
-		else if (typeof nameOrData === "string")
-			return new ViewResponse(`${this.name}/${nameOrData}`, maybeData)
-		else
-			return new ViewResponse(`${this.name}/${this.action}`, nameOrData)
-	}
-
-	protected abstract error(data?: object): ErrorResponse
-	protected abstract error(statusCode: number, data?: object): ErrorResponse
-
-	protected abstract view(data?: object): ViewResponse
-	protected abstract view(name: string, data?: object): ViewResponse
-}
-
-export abstract class Controller extends ActionDispatcher {
+export class Controller extends ActionDispatcher {
 
 	protected context: HttpContext
 
@@ -68,6 +41,10 @@ export abstract class Controller extends ActionDispatcher {
 
 	protected redirect() {
 		throw new Error("Method not implemented.");
+	}
+
+	protected response(data: object): SerializeResponse {
+		return new SerializeResponse(data)
 	}
 
 	protected view(data?: object): ViewResponse

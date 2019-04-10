@@ -45,7 +45,7 @@ export class ErrorResponse extends ActionResponse {
 
 //! DO NOT EXPORT THIS CLASS TO INDEX
 export class InternalErrorResponse extends ErrorResponse {
-	private readonly viewPath = 'resources/views/error'
+	private readonly viewPath = 'resources/views/error.pug'
 
 	constructor(private error: any, private code: number = 500) {
 		super(error, code)
@@ -56,7 +56,7 @@ export class InternalErrorResponse extends ErrorResponse {
 	 */
 	send() {
 		try {
-			const path = Path.join(__dirname, this.viewPath, this.code + '.pug')
+			const path = Path.join(__dirname, this.viewPath)
 			const view: string = Pug.compileFile(path)({
 				statusCode: this.code,
 				error: this.error
@@ -70,5 +70,18 @@ export class InternalErrorResponse extends ErrorResponse {
 
 	private fallback(error: any) {
 		this.context.request.next(error)
+	}
+}
+
+export class SerializeResponse extends ActionResponse {
+	
+	constructor(private serializeData: object) {
+		super();
+	}
+
+	public send() {
+		//* Data gets serialized by Express
+		return this.context.request.res
+				.status(200).send(this.serializeData)
 	}
 }
