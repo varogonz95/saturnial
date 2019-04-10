@@ -71,4 +71,8 @@ export interface ServerMiddlewareConfig {
 	staticOptions?: ServeStaticOptions
 }
 
+export interface Sessionconfig {
+	expires: string | number	// Session expiration time expressed in minutes
+}
+
 export interface Type<T> { new(...args: any[]): T }
