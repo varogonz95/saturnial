@@ -17,7 +17,7 @@ export abstract class ActionDispatcher {
 	protected abstract error(data?: object): ErrorResponse
 	protected abstract error(statusCode: number, data?: object): ErrorResponse
 
-	protected abstract response(data: object): SerializeResponse
+	protected abstract response(data: any): SerializeResponse
 
 	protected abstract view(): ViewResponse
 	protected abstract view(data: object): ViewResponse
@@ -43,13 +43,13 @@ export class Controller extends ActionDispatcher {
 		throw new Error("Method not implemented.");
 	}
 
-	protected response(data: object): SerializeResponse {
+	protected response(data: any): SerializeResponse {
 		return new SerializeResponse(data)
 	}
 
 	protected view(data?: object): ViewResponse
 	protected view(name: string, data?: object, externalDir?: boolean): ViewResponse
-	protected view(nameOrData?: string | object, maybeData?: object, externalDir: boolean = false): ViewResponse {
+	protected view(nameOrData?: string | object, maybeData?: object/* , externalDir: boolean = false */): ViewResponse {
 		if (!arguments.length)
 			return new ViewResponse(`${this.name}/${this.action}`)
 		else if (typeof nameOrData === "string")

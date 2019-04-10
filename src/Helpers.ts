@@ -13,7 +13,7 @@ export function token(): string {
 }
 
 export function tokenField(): string {
-	return `input type="hidden" name="_csrf" value="${token()}"`
+	return `<input type="hidden" name="_csrf" value="${token()}"/>`
 }
 
 /* export function user(): Object {
@@ -37,7 +37,7 @@ export function current(): IRoute {
 }
 
 export function method(method: HTTP_METHODS): string {
-	return `input type="hidden" name="_method" value="${method.toUpperCase()}"`
+	return `<input type="hidden" name="_method" value="${method.toUpperCase()}/>"`
 }
 
 export function route(name: string, params?: object): string {

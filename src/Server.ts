@@ -3,20 +3,22 @@ import csurf from "csurf";
 import session from "express-session"
 import methodOverride from "method-override";
 import bodyParser from "body-parser"
-import cookieParser from "cookie-parser"
+// import cookieParser from "cookie-parser"
 
 import * as Path from "path";
 import { Router } from "./Router";
 import express, { RequestHandler } from "express";
 import { AppContainer } from "./Container";
-import { RouteResolver } from "./RouteResolver";
+import { RouteResolver, HttpContext } from "./RouteResolver";
 import { ServerMiddlewareConfig, ServerConfig, CSRFOptions } from "./interfaces";
 import { extend } from "./Helpers";
 import { Config } from "./Config";
+import { InternalErrorResponse } from "./ActionResponse";
+import { HTTP_METHODS } from "./Utils";
 
 const DEFAULT_SERVER_MIDDLEWARES: ServerMiddlewareConfig = {
 	cors: true,
-	csrf: { sessionKey: 'csrf', cookie: true },
+	csrf: { cookie: false }
 }
 
 export class Server {
@@ -37,12 +39,46 @@ export class Server {
 		this.config(middlewares)
 	}
 
+    start(callback?: Function) {
+		console.log('Binding routes...');
+		this.bindRoutes()
+
+		if (this.conf.host === undefined)
+			this.application.listen(
+				Config.server().port,
+				() => { if (callback) callback() }
+			)
+		else
+			this.application.listen(
+				Config.server().port,
+				Config.server().host,
+				() => { if (callback) callback() }
+			)
+    }
+
+    public middleware(...middlewares: RequestHandler[]): void {
+        this.application.use(...middlewares)
+    }
+
+    private bindRoutes(): void {
+        this.resolver.resolve(...Router.all())
+	}
+
     private config(middlewares?: ServerMiddlewareConfig): void {
 		if (typeof middlewares === "undefined")
 			this.config(DEFAULT_SERVER_MIDDLEWARES)
 		else {
+
 			// Enable method spoofing
 			this.application.use(methodOverride(methodOverrideGetter))
+
+			// Enable sessions
+			// this.application.use(cookieParser())
+			this.application.use(session({
+				secret: 'a6d8984bad38158f18e77e3924cb65c9c3bc5b69',
+				resave: false,
+				saveUninitialized: true
+			}))
 
 			// Enable application/json support
 			this.application.use(bodyParser.json())
@@ -50,21 +86,14 @@ export class Server {
 			// Enable application/x-www-form-urlenconded support
 			this.application.use(bodyParser.urlencoded({ extended: false }))
 
-			// Enable sessions
-			this.application.use(cookieParser())
-			this.application.use(session({
-				secret: (<CSRFOptions> middlewares.csrf).sessionKey,
-				resave: false,
-				saveUninitialized: true
-			}))
-
-			//! BUG: @throws Misconfigured csrf error
+			//! BUG: @throws invalid csrf token
 			// Enable CSRF Protection
 			if (typeof middlewares.csrf === "boolean")
 				this.application.use(csurf())
 			else if (typeof middlewares.csrf === "object")
-				this.application.use(csurf(middlewares.csrf))
-			
+				this.application.use(csurf({cookie: false}))
+
+			this.application.use(invalidToken);
 			// Enable CORS
 			if (typeof middlewares.cors === "boolean")
 				this.application.use(cors())
@@ -86,32 +115,6 @@ export class Server {
 			}
 		}
     }
-
-    async start(callback?: Function) {
-		console.log('Binding routes...');
-		this.bindRoutes()
-
-		if (this.conf.host === undefined)
-			await this.application.listen(
-				Config.server().port,
-				() => { if (callback) callback() }
-			)
-		else
-			await this.application.listen(
-				Config.server().port,
-				Config.server().host,
-				() => { if (callback) callback() }
-			)
-
-    }
-
-    public middleware(...middlewares: RequestHandler[]): void {
-        this.application.use(...middlewares)
-    }
-
-    private bindRoutes(): void {
-        this.resolver.resolve(...Router.all())
-	}
 	
 	private normalizeStaticPath(path: string) {
 		return !path.startsWith('/') ? `/${path}` : path
@@ -126,4 +129,17 @@ function methodOverrideGetter(req: express.Request) {
 		delete req.body._method
 		return method
 	}
+}
+
+function invalidToken(err: any, req: express.Request, res: express.Response, next: express.NextFunction) {
+	//* Create context
+	HttpContext.create({
+		action: null,
+		handler: null,
+		method: HTTP_METHODS[req.method]
+	}, req, HTTP_METHODS[req.method])
+	if (err.code !== 'EBADCSRFTOKEN') 
+		return next(err);
+	let response = new InternalErrorResponse(err, 403)
+	response.send()
 }

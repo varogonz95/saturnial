@@ -75,7 +75,7 @@ export class InternalErrorResponse extends ErrorResponse {
 
 export class SerializeResponse extends ActionResponse {
 	
-	constructor(private serializeData: object) {
+	constructor(private serializeData: any) {
 		super();
 	}
 
