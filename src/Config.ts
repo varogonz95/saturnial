@@ -9,6 +9,7 @@ export const CONFIG_DEFAULTS: ConfigOptions = {
 	server: {
 		host: 'localhost',
 		port: 3000,
+		static: ''
 	},
 }
 /**
@@ -25,11 +26,13 @@ export class Config {
 	private constructor(options?: string | ConfigOptions) {
 		if (typeof options === "undefined")
 			this.config = CONFIG_DEFAULTS
+
 		else if (typeof options === "string") {
 			this.file = Path.resolve(__dirname, Path.relative(__dirname, options))
 			this.config = this.parseConfigFile()
 		}
-		else this.config = extend<any>(options, CONFIG_DEFAULTS)
+
+		else this.config = extend(CONFIG_DEFAULTS, options)
 	}
 
 	public static create(options?: string | ConfigOptions): void {

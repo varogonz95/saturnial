@@ -3,6 +3,7 @@ import { Server } from "./Server";
 import { Config, CONFIG_DEFAULTS } from "./Config";
 import { ConfigOptions, ServerConfig, ServerMiddlewareConfig } from "./interfaces";
 import { AppContainer, ControllerContainer } from "./Container";
+import { extend } from "./Helpers";
 
 export class App {
 
@@ -54,7 +55,7 @@ export class App {
 			// ... Or is [ServerConfig] type
 			else if (this.isServerConfig(config)) {
 				let _conf = CONFIG_DEFAULTS
-				_conf.server = config
+				_conf.server = extend(config, CONFIG_DEFAULTS.server)
 				Config.create(_conf)
 			}
 			else if (this.isServerMiddlewareConfig(config))
