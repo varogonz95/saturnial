@@ -9,7 +9,7 @@
       "web",
       "server"
    ],
-   "description": "",
+   "description": "Typescript MVC Framework built on top of ExpressJS.",
    "author": "Álvaro González Quirós",
    "license": "ISC",
    "version": "1.1.1",
@@ -19,11 +19,9 @@
    },
    "scripts": {
       "build": "tsc",
-      "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
       "lint": "tslint -p tsconfig.json",
       "prepublishOnly": "npm run build",
       "preversion": "npm run lint",
-      "version": "npm run format && git add -A src",
       "postversion": "git push && git push --tags"
    },
    "engines": {
@@ -61,6 +59,7 @@
       "ts-node": "3.3.0",
       "tslint": "^5.12.1",
       "tslint-config-prettier": "^1.17.0",
+      "typedoc": "^0.14.2",
       "typescript": "^3.3.3333"
    }
 }

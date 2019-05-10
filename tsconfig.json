@@ -63,5 +63,11 @@
     "suppressImplicitAnyIndexErrors": true
   },
   "exclude": ["node_modules", "tests"],
-  "include": ["./src/**/*.ts"]
+  "include": ["./src/**/*.ts"],
+  // Documentation generator
+  "typedocOptions": {
+	  "mode": "file",
+	  "out": "docs",
+	  "name": "Saturnial"
+  }
 }

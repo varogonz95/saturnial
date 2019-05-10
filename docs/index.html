@@ -1,150 +1,330 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="default no-js">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="stylesheet" href="./assets/styles/styles.css">
-    <link rel="stylesheet" href="./assets/styles/atom-one-light.css">
-	<link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-	<script src="./assets/scripts/highlightjs/highlight.pack.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-	<script src="//code.angularjs.org/1.7.6/angular-route.js"></script>
-	<script src="//pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
-	<!-- AngularJS controllers/modules -->
-	<script src="./app/app.module.js"></script>
-	<!-- AngularJS components -->
-	<script src="./app/components/navbar/navbar.component.js"></script>
-	<script src="./app/components/codeBlock/codeBlock.component.js"></script>
-
-    <title>Saturnial MVC</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Saturnial</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
 </head>
-<body ng-app="app">
-
-    <navbar></navbar>
-
-    <div class="jumbotron jumbotron-fluid mb-0">
-        <div class="container text-center">
-            <h1 class="display-3">Saturnial MVC Framework</h1>
-            <hr class="my-2">
-            <p class="lead">Labore eu quis qui id consectetur amet veniam consectetur eiusmod incididunt enim dolore quis.</p>
-            <!-- <p class="lead">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
-            </p> -->
-        </div>
-    </div>
-
-    <article class="container pt-5 pb-3">
-        <header class="row mb-3" style="font-size: x-large; font-weight: lighter">
-            <div class="col"><hr></div>
-            <div class="col text-center">So, Why Saturnial MVC?</div>
-            <div class="col"><hr></div>
-        </header>
-        
-        <section>
-            <p>
-                Culpa magna qui non magna non dolor sunt. Cillum aliquip ad qui eiusmod laborum eiusmod consequat labore. Cupidatat mollit do nulla commodo sit in et amet eiusmod pariatur. Id Lorem nostrud nostrud veniam deserunt laborum qui in dolore ut enim dolor Lorem. Et non culpa incididunt cupidatat est eu cillum voluptate non commodo do aliquip. Nostrud aliqua enim eiusmod commodo do consectetur.
-                <br><br>
-                Ipsum dolor exercitation proident et duis do. Voluptate ea reprehenderit ex proident elit et excepteur proident id quis. Est nisi amet irure pariatur nisi officia. Ea incididunt reprehenderit ipsum enim esse ex ad qui aliquip.
-            </p>
-        </section>
-        <hr>
-    </article>
-
-    <div class="container-fluid">
-        <!-- <div class="row mb-5">
-            <div class="col-10 mx-auto">
-                <div class="card-group">
-                    <div class="card">
-                        <img class="card-img-top" data-src="holder.js/100x180/" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Model</h4>
-                            <p class="card-text">Proident aute enim est fugiat cillum do incididunt adipisicing Lorem.</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" data-src="holder.js/100x180/" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">View</h4>
-                            <p class="card-text">Reprehenderit ea Lorem labore in mollit dolor reprehenderit ut Lorem minim ipsum mollit.</p>
-                        </div>
-                    </div>
-
-                    <div class="card">
-                        <img class="card-img-top" data-src="holder.js/100x180/" alt="Card image cap">
-                        <div class="card-body">
-                            <h4 class="card-title">Controller</h4>
-                            <p class="card-text">Nulla eiusmod exercitation velit sunt in sunt non aute magna sint laborum.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-
-        <div class="row py-5">
-
-            <div class="col-5 mx-auto">
-            </div>
-            
-            <div class="col-5 mx-auto">
-                <div class="card border-0">
-                    <div class="card-body">
-                        <h4 class="card-title">Lorem Ipsum</h4>
-                        <p class="card-text">Nulla sint tempor reprehenderit quis exercitation fugiat elit magna commodo magna laboris.</p>
-                        <p class="card-text">
-                            <button class="btn btn-sm btn-primary">Learn more</button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row py-5 bg-light">
-            <div class="col-5 mx-auto">
-                <div class="card border-0 bg-light">
-                    <div class="card-body">
-                        <h4 class="card-title">Lorem Ipsum</h4>
-                        <p class="card-text">Nulla sint tempor reprehenderit quis exercitation fugiat elit magna commodo magna laboris.</p>
-                        <p class="card-text">
-                            <button class="btn btn-sm btn-primary">Learn more</button>
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-5 mx-auto">
-                <pre class="prettyprint rounded shadow bg-white border-0">
-                    class Voila {
-                        public:
-                        // Voila
-                        static const string VOILA = "Voila";
-                        
-                        // will not interfere with embedded <a href="#voila2">tags</a>.
-                    }
-                </pre>
-            </div>
-        </div>
-    </div>
-
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <h1 class="h1" style="font-weight: lighter">NodeJs + Express + TypeORM + Pug = Perfection</h1>
-            <p class="lead">Just the right recipe for Web development.</p>
-            <p class="lead mt-5">
-                <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Explore the Docs!</a>
-            </p>
-        </div>
-    </div>
-
-    <footer>
-        All rights reserved lol
-    </footer>
-
-    <script src="//code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="//stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">Saturnial</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> Saturnial</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="saturnial-span-style-font-weight-200-font-size-large-color-888-the-mvc-framework-for-typescript-and-express-lovers-span-">Saturnial <span style="font-weight: 200; font-size: large; color: #888">The MVC Framework for Typescript and Express lovers.</span></h1>
+				<h2 id="table-of-contents">Table of contents</h2>
+				<ul>
+					<li><a href="./index.html#installation">Installation</a></li>
+					<li><a href="./index.html#requirements">Requirements</a></li>
+					<li><a href="./index.html#usage-getting-started">Usage - Getting started</a></li>
+					<li><a href="./index.html#configuration">Configuration</a></li>
+					<li><a href="./index.html#middlewares">Middlewares</a></li>
+					<li><a href="./index.html#routing">Routing</a></li>
+					<li><a href="./index.html#controllers">Controllers</a></li>
+					<li><a href="./index.html#response">Response</a></li>
+					<li><a href="./index.html#views">Views</a></li>
+					<li><a href="./index.html#helpers">Helpers</a></li>
+					<li><a href="./index.html#database-w-typeorm">Database w/TypeORM</a></li>
+					<li><a href="./index.html#security">Security</a></li>
+				</ul>
+				<h2 id="installation-">Installation.</h2>
+				<p>To install saturnial, you just need to have <em>Nodejs</em> and (or) <em>NPM</em>.<br>Run the command below in your favorite terminal and you are set!<br>See <a href="./#requirements">requirements</a> for more information.  </p>
+				<pre><code>&gt; npm <span class="hljs-keyword">install</span> saturnial</code></pre><p>This command will install all dependencies needed.</p>
+				<h2 id="requirements-">Requirements.</h2>
+				<h2 id="usage-getting-started-">Usage - Getting started.</h2>
+				<h2 id="configuration">Configuration</h2>
+				<h2 id="middlewares">Middlewares</h2>
+				<h2 id="routing">Routing</h2>
+				<h2 id="controllers">Controllers</h2>
+				<h2 id="response">Response</h2>
+				<h2 id="views">Views</h2>
+				<h2 id="helpers">Helpers</h2>
+				<h2 id="database-typeorm">Database - TypeORM</h2>
+				<h2 id="security">Security</h2>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-enum">
+						<a href="enums/http_methods.html" class="tsd-kind-icon">HTTP_<wbr>METHODS</a>
+					</li>
+					<li class=" tsd-kind-enum">
+						<a href="enums/metadata_keys.html" class="tsd-kind-icon">METADATA_<wbr>KEYS</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/actiondispatcher.html" class="tsd-kind-icon">Action<wbr>Dispatcher</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/actionresponse.html" class="tsd-kind-icon">Action<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/app.html" class="tsd-kind-icon">App</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/appcontainer.html" class="tsd-kind-icon">App<wbr>Container</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/config.html" class="tsd-kind-icon">Config</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/controller.html" class="tsd-kind-icon">Controller</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/controllercontainer.html" class="tsd-kind-icon">Controller<wbr>Container</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/errorresponse.html" class="tsd-kind-icon">Error<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/httpcontext.html" class="tsd-kind-icon">Http<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/internalerrorresponse.html" class="tsd-kind-icon">Internal<wbr>Error<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/routeresolver.html" class="tsd-kind-icon">Route<wbr>Resolver</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/router.html" class="tsd-kind-icon">Router</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/serializeresponse.html" class="tsd-kind-icon">Serialize<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/server.html" class="tsd-kind-icon">Server</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/view.html" class="tsd-kind-icon">View</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-not-exported">
+						<a href="classes/viewdata.html" class="tsd-kind-icon">View<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/viewresponse.html" class="tsd-kind-icon">View<wbr>Response</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/actionbindingoptions.html" class="tsd-kind-icon">Action<wbr>Binding<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/appconfig.html" class="tsd-kind-icon">App<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/csrfoptions.html" class="tsd-kind-icon">CSRFOptions</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/configoptions.html" class="tsd-kind-icon">Config<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-not-exported">
+						<a href="interfaces/extendoptions.html" class="tsd-kind-icon">Extend<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/iclasscontainer.html" class="tsd-kind-icon">IClass<wbr>Container</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iprovidercollection.html" class="tsd-kind-icon">IProvider<wbr>Collection</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iroute.html" class="tsd-kind-icon">IRoute</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/serverconfig.html" class="tsd-kind-icon">Server<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/servermiddlewareconfig.html" class="tsd-kind-icon">Server<wbr>Middleware<wbr>Config</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/sessionconfig.html" class="tsd-kind-icon">Sessionconfig</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/type.html" class="tsd-kind-icon">Type</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#actionparameterinjectable" class="tsd-kind-icon">Action<wbr>Parameter<wbr>Injectable</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#genericclassdecorator" class="tsd-kind-icon">Generic<wbr>Class<wbr>Decorator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-has-type-parameter">
+						<a href="globals.html#genericpropertydecorator" class="tsd-kind-icon">Generic<wbr>Property<wbr>Decorator</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#config_views_path" class="tsd-kind-icon">CONFIG_<wbr>VIEWS_<wbr>PATH</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#action" class="tsd-kind-icon">action</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#assets" class="tsd-kind-icon">assets</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#config" class="tsd-kind-icon">config</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#current" class="tsd-kind-icon">current</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#extend" class="tsd-kind-icon">extend</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#invalidtoken" class="tsd-kind-icon">invalid<wbr>Token</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#method" class="tsd-kind-icon">method</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#methodoverridegetter" class="tsd-kind-icon">method<wbr>Override<wbr>Getter</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-not-exported">
+						<a href="globals.html#requesthandlerfactory" class="tsd-kind-icon">request<wbr>Handler<wbr>Factory</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#route" class="tsd-kind-icon">route</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#token" class="tsd-kind-icon">token</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#tokenfield" class="tsd-kind-icon">token<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#config_defaults" class="tsd-kind-icon">CONFIG_<wbr>DEFAULTS</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-is-not-exported">
+						<a href="globals.html#default_binding_options" class="tsd-kind-icon">DEFAULT_<wbr>BINDING_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-is-not-exported">
+						<a href="globals.html#default_server_middlewares" class="tsd-kind-icon">DEFAULT_<wbr>SERVER_<wbr>MIDDLEWARES</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
